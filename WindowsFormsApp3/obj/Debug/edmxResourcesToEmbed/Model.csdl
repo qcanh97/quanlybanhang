@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLBHModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="QLBHEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="HangHoas" EntityType="QLBHModel.HangHoa" />
+    <EntitySet Name="temps" EntityType="QLBHModel.temp" />
+    <EntitySet Name="CT_PhieuBanHang" EntityType="QLBHModel.CT_PhieuBanHang" />
+    <EntitySet Name="PhieuBanHangs" EntityType="QLBHModel.PhieuBanHang" />
+    <EntitySet Name="PhieuMuaHangs" EntityType="QLBHModel.PhieuMuaHang" />
+    <EntitySet Name="CT_PhieuNhapHang" EntityType="QLBHModel.CT_PhieuNhapHang" />
+  </EntityContainer>
+  <EntityType Name="HangHoa">
+    <Key>
+      <PropertyRef Name="MaHang" />
+    </Key>
+    <Property Name="MaHang" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="TenHang" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="DonVi" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="GiaMua" Type="Int32" />
+    <Property Name="GiaBan" Type="Int32" />
+    <Property Name="NhomHang" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="TenKho" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ConQuanLy" Type="Boolean" />
+    <Property Name="TonKho" Type="Int32" />
+    <Property Name="NCC" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="temp">
+    <Key>
+      <PropertyRef Name="Matemp" />
+    </Key>
+    <Property Name="Matemp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaPBH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="MaHang" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="TenHang" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="TenDVT" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="DonGia" Type="Int32" />
+    <Property Name="ThanhTien" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CT_PhieuBanHang">
+    <Key>
+      <PropertyRef Name="MaCTBH" />
+    </Key>
+    <Property Name="MaCTBH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaPBH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="MaHang" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="TenHang" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="TenDVT" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="DonGia" Type="Int32" />
+    <Property Name="ThanhTien" Type="Int32" />
+  </EntityType>
+  <EntityType Name="PhieuBanHang">
+    <Key>
+      <PropertyRef Name="MaBH" />
+    </Key>
+    <Property Name="MaBH" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="MaKH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="TenKH" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="TenNV" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="TenKho" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DienThoai" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+    <Property Name="NgayLap" Type="DateTime" Precision="3" />
+    <Property Name="TongTien" Type="Int32" />
+  </EntityType>
+  <EntityType Name="PhieuMuaHang">
+    <Key>
+      <PropertyRef Name="MaMH" />
+    </Key>
+    <Property Name="MaMH" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="MaNCC" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="TenNCC" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="TenNV" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="TenKho" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DienThoai" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+    <Property Name="NgayLap" Type="DateTime" Precision="3" />
+    <Property Name="TongTien" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CT_PhieuNhapHang">
+    <Key>
+      <PropertyRef Name="MaCTNH" />
+    </Key>
+    <Property Name="MaCTNH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaMH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="MaHang" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="TenHang" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="TenDVT" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="DonGia" Type="Int32" />
+    <Property Name="ThanhTien" Type="Int32" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLBHModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CT_PhieuBanHang">
+    <Key>
+      <PropertyRef Name="MaCTBH" />
+    </Key>
+    <Property Name="MaCTBH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaPBH" Type="char" MaxLength="10" />
+    <Property Name="MaHang" Type="char" MaxLength="10" />
+    <Property Name="TenHang" Type="nvarchar" MaxLength="128" />
+    <Property Name="TenDVT" Type="nvarchar" MaxLength="128" />
+    <Property Name="SoLuong" Type="int" />
+    <Property Name="DonGia" Type="int" />
+    <Property Name="ThanhTien" Type="int" />
+  </EntityType>
+  <EntityType Name="CT_PhieuNhapHang">
+    <Key>
+      <PropertyRef Name="MaCTNH" />
+    </Key>
+    <Property Name="MaCTNH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaMH" Type="char" MaxLength="10" />
+    <Property Name="MaHang" Type="char" MaxLength="10" />
+    <Property Name="TenHang" Type="nvarchar" MaxLength="128" />
+    <Property Name="TenDVT" Type="nvarchar" MaxLength="128" />
+    <Property Name="SoLuong" Type="int" />
+    <Property Name="DonGia" Type="int" />
+    <Property Name="ThanhTien" Type="int" />
+  </EntityType>
+  <EntityType Name="HangHoa">
+    <Key>
+      <PropertyRef Name="MaHang" />
+    </Key>
+    <Property Name="MaHang" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="TenHang" Type="nvarchar" MaxLength="128" />
+    <Property Name="DonVi" Type="nvarchar" MaxLength="32" />
+    <Property Name="GiaMua" Type="int" />
+    <Property Name="GiaBan" Type="int" />
+    <Property Name="NhomHang" Type="nvarchar" MaxLength="128" />
+    <Property Name="TenKho" Type="nvarchar" MaxLength="128" />
+    <Property Name="ConQuanLy" Type="bit" />
+    <Property Name="TonKho" Type="int" />
+    <Property Name="NCC" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="PhieuBanHang">
+    <Key>
+      <PropertyRef Name="MaBH" />
+    </Key>
+    <Property Name="MaBH" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="MaKH" Type="char" MaxLength="10" />
+    <Property Name="TenKH" Type="nvarchar" MaxLength="128" />
+    <Property Name="TenNV" Type="nvarchar" MaxLength="128" />
+    <Property Name="TenKho" Type="nvarchar" MaxLength="128" />
+    <Property Name="DiaChi" Type="nvarchar(max)" />
+    <Property Name="GhiChu" Type="nvarchar(max)" />
+    <Property Name="DienThoai" Type="char" MaxLength="15" />
+    <Property Name="NgayLap" Type="datetime" />
+    <Property Name="TongTien" Type="int" />
+  </EntityType>
+  <EntityType Name="PhieuMuaHang">
+    <Key>
+      <PropertyRef Name="MaMH" />
+    </Key>
+    <Property Name="MaMH" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="MaNCC" Type="char" MaxLength="10" />
+    <Property Name="TenNCC" Type="nvarchar" MaxLength="128" />
+    <Property Name="TenNV" Type="nvarchar" MaxLength="128" />
+    <Property Name="TenKho" Type="nvarchar" MaxLength="128" />
+    <Property Name="DiaChi" Type="nvarchar(max)" />
+    <Property Name="GhiChu" Type="nvarchar(max)" />
+    <Property Name="DienThoai" Type="char" MaxLength="15" />
+    <Property Name="NgayLap" Type="datetime" />
+    <Property Name="TongTien" Type="int" />
+  </EntityType>
+  <EntityType Name="temp">
+    <Key>
+      <PropertyRef Name="Matemp" />
+    </Key>
+    <Property Name="Matemp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaPBH" Type="char" MaxLength="10" />
+    <Property Name="MaHang" Type="char" MaxLength="10" />
+    <Property Name="TenHang" Type="nvarchar" MaxLength="128" />
+    <Property Name="TenDVT" Type="nvarchar" MaxLength="128" />
+    <Property Name="SoLuong" Type="int" />
+    <Property Name="DonGia" Type="int" />
+    <Property Name="ThanhTien" Type="int" />
+  </EntityType>
+  <EntityContainer Name="QLBHModelStoreContainer">
+    <EntitySet Name="CT_PhieuBanHang" EntityType="Self.CT_PhieuBanHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CT_PhieuNhapHang" EntityType="Self.CT_PhieuNhapHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HangHoa" EntityType="Self.HangHoa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhieuBanHang" EntityType="Self.PhieuBanHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhieuMuaHang" EntityType="Self.PhieuMuaHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="temp" EntityType="Self.temp" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

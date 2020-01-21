@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="QLBHModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CT_PhieuBanHang">
+          <Key>
+            <PropertyRef Name="MaCTBH" />
+          </Key>
+          <Property Name="MaCTBH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaPBH" Type="char" MaxLength="10" />
+          <Property Name="MaHang" Type="char" MaxLength="10" />
+          <Property Name="TenHang" Type="nvarchar" MaxLength="128" />
+          <Property Name="TenDVT" Type="nvarchar" MaxLength="128" />
+          <Property Name="SoLuong" Type="int" />
+          <Property Name="DonGia" Type="int" />
+          <Property Name="ThanhTien" Type="int" />
+        </EntityType>
+        <EntityType Name="CT_PhieuNhapHang">
+          <Key>
+            <PropertyRef Name="MaCTNH" />
+          </Key>
+          <Property Name="MaCTNH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaMH" Type="char" MaxLength="10" />
+          <Property Name="MaHang" Type="char" MaxLength="10" />
+          <Property Name="TenHang" Type="nvarchar" MaxLength="128" />
+          <Property Name="TenDVT" Type="nvarchar" MaxLength="128" />
+          <Property Name="SoLuong" Type="int" />
+          <Property Name="DonGia" Type="int" />
+          <Property Name="ThanhTien" Type="int" />
+        </EntityType>
+        <EntityType Name="HangHoa">
+          <Key>
+            <PropertyRef Name="MaHang" />
+          </Key>
+          <Property Name="MaHang" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="TenHang" Type="nvarchar" MaxLength="128" />
+          <Property Name="DonVi" Type="nvarchar" MaxLength="32" />
+          <Property Name="GiaMua" Type="int" />
+          <Property Name="GiaBan" Type="int" />
+          <Property Name="NhomHang" Type="nvarchar" MaxLength="128" />
+          <Property Name="TenKho" Type="nvarchar" MaxLength="128" />
+          <Property Name="ConQuanLy" Type="bit" />
+          <Property Name="TonKho" Type="int" />
+          <Property Name="NCC" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="PhieuBanHang">
+          <Key>
+            <PropertyRef Name="MaBH" />
+          </Key>
+          <Property Name="MaBH" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaKH" Type="char" MaxLength="10" />
+          <Property Name="TenKH" Type="nvarchar" MaxLength="128" />
+          <Property Name="TenNV" Type="nvarchar" MaxLength="128" />
+          <Property Name="TenKho" Type="nvarchar" MaxLength="128" />
+          <Property Name="DiaChi" Type="nvarchar(max)" />
+          <Property Name="GhiChu" Type="nvarchar(max)" />
+          <Property Name="DienThoai" Type="char" MaxLength="15" />
+          <Property Name="NgayLap" Type="datetime" />
+          <Property Name="TongTien" Type="int" />
+        </EntityType>
+        <EntityType Name="PhieuMuaHang">
+          <Key>
+            <PropertyRef Name="MaMH" />
+          </Key>
+          <Property Name="MaMH" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaNCC" Type="char" MaxLength="10" />
+          <Property Name="TenNCC" Type="nvarchar" MaxLength="128" />
+          <Property Name="TenNV" Type="nvarchar" MaxLength="128" />
+          <Property Name="TenKho" Type="nvarchar" MaxLength="128" />
+          <Property Name="DiaChi" Type="nvarchar(max)" />
+          <Property Name="GhiChu" Type="nvarchar(max)" />
+          <Property Name="DienThoai" Type="char" MaxLength="15" />
+          <Property Name="NgayLap" Type="datetime" />
+          <Property Name="TongTien" Type="int" />
+        </EntityType>
+        <EntityType Name="temp">
+          <Key>
+            <PropertyRef Name="Matemp" />
+          </Key>
+          <Property Name="Matemp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaPBH" Type="char" MaxLength="10" />
+          <Property Name="MaHang" Type="char" MaxLength="10" />
+          <Property Name="TenHang" Type="nvarchar" MaxLength="128" />
+          <Property Name="TenDVT" Type="nvarchar" MaxLength="128" />
+          <Property Name="SoLuong" Type="int" />
+          <Property Name="DonGia" Type="int" />
+          <Property Name="ThanhTien" Type="int" />
+        </EntityType>
+        <EntityContainer Name="QLBHModelStoreContainer">
+          <EntitySet Name="CT_PhieuBanHang" EntityType="Self.CT_PhieuBanHang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CT_PhieuNhapHang" EntityType="Self.CT_PhieuNhapHang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HangHoa" EntityType="Self.HangHoa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhieuBanHang" EntityType="Self.PhieuBanHang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhieuMuaHang" EntityType="Self.PhieuMuaHang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="temp" EntityType="Self.temp" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QLBHModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="QLBHEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="HangHoas" EntityType="QLBHModel.HangHoa" />
+          <EntitySet Name="temps" EntityType="QLBHModel.temp" />
+          <EntitySet Name="CT_PhieuBanHang" EntityType="QLBHModel.CT_PhieuBanHang" />
+          <EntitySet Name="PhieuBanHangs" EntityType="QLBHModel.PhieuBanHang" />
+          <EntitySet Name="PhieuMuaHangs" EntityType="QLBHModel.PhieuMuaHang" />
+          <EntitySet Name="CT_PhieuNhapHang" EntityType="QLBHModel.CT_PhieuNhapHang" />
+        </EntityContainer>
+        <EntityType Name="HangHoa">
+          <Key>
+            <PropertyRef Name="MaHang" />
+          </Key>
+          <Property Name="MaHang" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="TenHang" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DonVi" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="GiaMua" Type="Int32" />
+          <Property Name="GiaBan" Type="Int32" />
+          <Property Name="NhomHang" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="TenKho" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ConQuanLy" Type="Boolean" />
+          <Property Name="TonKho" Type="Int32" />
+          <Property Name="NCC" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="temp">
+          <Key>
+            <PropertyRef Name="Matemp" />
+          </Key>
+          <Property Name="Matemp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaPBH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MaHang" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="TenHang" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="TenDVT" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="SoLuong" Type="Int32" />
+          <Property Name="DonGia" Type="Int32" />
+          <Property Name="ThanhTien" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CT_PhieuBanHang">
+          <Key>
+            <PropertyRef Name="MaCTBH" />
+          </Key>
+          <Property Name="MaCTBH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaPBH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MaHang" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="TenHang" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="TenDVT" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="SoLuong" Type="Int32" />
+          <Property Name="DonGia" Type="Int32" />
+          <Property Name="ThanhTien" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PhieuBanHang">
+          <Key>
+            <PropertyRef Name="MaBH" />
+          </Key>
+          <Property Name="MaBH" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MaKH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="TenKH" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="TenNV" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="TenKho" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DienThoai" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="NgayLap" Type="DateTime" Precision="3" />
+          <Property Name="TongTien" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PhieuMuaHang">
+          <Key>
+            <PropertyRef Name="MaMH" />
+          </Key>
+          <Property Name="MaMH" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MaNCC" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="TenNCC" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="TenNV" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="TenKho" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DienThoai" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="NgayLap" Type="DateTime" Precision="3" />
+          <Property Name="TongTien" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CT_PhieuNhapHang">
+          <Key>
+            <PropertyRef Name="MaCTNH" />
+          </Key>
+          <Property Name="MaCTNH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaMH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MaHang" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="TenHang" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="TenDVT" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="SoLuong" Type="Int32" />
+          <Property Name="DonGia" Type="Int32" />
+          <Property Name="ThanhTien" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QLBHModelStoreContainer" CdmEntityContainer="QLBHEntities1">
+          <EntitySetMapping Name="HangHoas">
+            <EntityTypeMapping TypeName="QLBHModel.HangHoa">
+              <MappingFragment StoreEntitySet="HangHoa">
+                <ScalarProperty Name="NCC" ColumnName="NCC" />
+                <ScalarProperty Name="TonKho" ColumnName="TonKho" />
+                <ScalarProperty Name="ConQuanLy" ColumnName="ConQuanLy" />
+                <ScalarProperty Name="TenKho" ColumnName="TenKho" />
+                <ScalarProperty Name="NhomHang" ColumnName="NhomHang" />
+                <ScalarProperty Name="GiaBan" ColumnName="GiaBan" />
+                <ScalarProperty Name="GiaMua" ColumnName="GiaMua" />
+                <ScalarProperty Name="DonVi" ColumnName="DonVi" />
+                <ScalarProperty Name="TenHang" ColumnName="TenHang" />
+                <ScalarProperty Name="MaHang" ColumnName="MaHang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="temps">
+            <EntityTypeMapping TypeName="QLBHModel.temp">
+              <MappingFragment StoreEntitySet="temp">
+                <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="TenDVT" ColumnName="TenDVT" />
+                <ScalarProperty Name="TenHang" ColumnName="TenHang" />
+                <ScalarProperty Name="MaHang" ColumnName="MaHang" />
+                <ScalarProperty Name="MaPBH" ColumnName="MaPBH" />
+                <ScalarProperty Name="Matemp" ColumnName="Matemp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CT_PhieuBanHang">
+            <EntityTypeMapping TypeName="QLBHModel.CT_PhieuBanHang">
+              <MappingFragment StoreEntitySet="CT_PhieuBanHang">
+                <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="TenDVT" ColumnName="TenDVT" />
+                <ScalarProperty Name="TenHang" ColumnName="TenHang" />
+                <ScalarProperty Name="MaHang" ColumnName="MaHang" />
+                <ScalarProperty Name="MaPBH" ColumnName="MaPBH" />
+                <ScalarProperty Name="MaCTBH" ColumnName="MaCTBH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhieuBanHangs">
+            <EntityTypeMapping TypeName="QLBHModel.PhieuBanHang">
+              <MappingFragment StoreEntitySet="PhieuBanHang">
+                <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+                <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="TenKho" ColumnName="TenKho" />
+                <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+                <ScalarProperty Name="TenKH" ColumnName="TenKH" />
+                <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+                <ScalarProperty Name="MaBH" ColumnName="MaBH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhieuMuaHangs">
+            <EntityTypeMapping TypeName="QLBHModel.PhieuMuaHang">
+              <MappingFragment StoreEntitySet="PhieuMuaHang">
+                <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+                <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="TenKho" ColumnName="TenKho" />
+                <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+                <ScalarProperty Name="TenNCC" ColumnName="TenNCC" />
+                <ScalarProperty Name="MaNCC" ColumnName="MaNCC" />
+                <ScalarProperty Name="MaMH" ColumnName="MaMH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CT_PhieuNhapHang">
+            <EntityTypeMapping TypeName="QLBHModel.CT_PhieuNhapHang">
+              <MappingFragment StoreEntitySet="CT_PhieuNhapHang">
+                <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="TenDVT" ColumnName="TenDVT" />
+                <ScalarProperty Name="TenHang" ColumnName="TenHang" />
+                <ScalarProperty Name="MaHang" ColumnName="MaHang" />
+                <ScalarProperty Name="MaMH" ColumnName="MaMH" />
+                <ScalarProperty Name="MaCTNH" ColumnName="MaCTNH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
